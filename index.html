@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>De-dollarization Primer · FINAN VIII</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=DM+Sans:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf8f4; --surface: #fff; --text: #1a1a1a; --muted: #6b7264;
+  --accent: #2d6a4f; --accent-bright: #40916c; --accent-light: #eef6f0;
+  --warm: #f5f0e6; --warm-dark: #e8dfd0; --border: #ddd6c8;
+  --info: #1d4e89; --info-light: #e8f0fb;
+  --warning: #b5651d; --warning-light: #fef3e2;
+  --negative: #c1121f; --negative-light: #fde8e8;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:15px;-webkit-font-smoothing:antialiased}
+.container{max-width:780px;margin:0 auto;padding:0 24px 60px}
+
+/* Header */
+.site-header{padding:32px 0 20px;border-bottom:1px solid var(--border);margin-bottom:32px}
+.site-header .label{font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.site-header h1{font-family:'Fraunces',serif;font-size:30px;font-weight:700;line-height:1.2;margin-bottom:4px}
+.site-header .subtitle{font-size:14px;color:var(--muted);max-width:640px}
+
+/* Sections */
+h2{font-family:'Fraunces',serif;font-size:22px;font-weight:700;margin:36px 0 12px;line-height:1.3;color:var(--text)}
+h3{font-family:'Fraunces',serif;font-size:17px;font-weight:700;margin:24px 0 8px;color:var(--text)}
+p{margin-bottom:14px}
+a{color:var(--accent);text-decoration:underline;text-decoration-color:rgba(45,106,79,.3);text-underline-offset:2px}
+a:hover{text-decoration-color:var(--accent)}
+
+/* Cards */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px 24px;margin:16px 0}
+.card h4{font-family:'Fraunces',serif;font-size:15px;font-weight:700;margin-bottom:6px}
+.card-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
+.card-grid .card{margin:0}
+
+/* Stat callouts */
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px;text-align:center}
+.stat .num{font-family:'Fraunces',serif;font-size:28px;font-weight:800;color:var(--accent);line-height:1.2}
+.stat .desc{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.4}
+
+/* Callout boxes */
+.callout{border-radius:10px;padding:16px 20px;margin:16px 0;font-size:14px;line-height:1.6}
+.callout.info{background:var(--info-light);color:var(--info);border-left:4px solid var(--info)}
+.callout.warn{background:var(--warning-light);color:var(--warning);border-left:4px solid var(--warning)}
+.callout.key{background:var(--accent-light);color:var(--accent);border-left:4px solid var(--accent)}
+.callout strong{display:block;margin-bottom:4px;font-size:12px;letter-spacing:.5px;text-transform:uppercase}
+
+/* Table */
+.data-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px}
+.data-table th{background:var(--warm);font-weight:600;text-align:left;padding:10px 14px;border-bottom:2px solid var(--border);font-size:13px}
+.data-table td{padding:10px 14px;border-bottom:1px solid var(--border)}
+.data-table tr:last-child td{border-bottom:none}
+
+/* Timeline */
+.timeline{position:relative;padding-left:28px;margin:16px 0}
+.timeline::before{content:'';position:absolute;left:8px;top:4px;bottom:4px;width:2px;background:var(--border)}
+.timeline .event{position:relative;margin-bottom:18px}
+.timeline .event::before{content:'';position:absolute;left:-24px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
+.timeline .event .year{font-weight:700;font-size:13px;color:var(--accent);margin-bottom:2px}
+.timeline .event p{margin:0;font-size:14px;line-height:1.5}
+
+/* Footer */
+.primer-footer{text-align:center;padding:36px 0;color:var(--muted);font-size:12px;border-top:1px solid var(--border);margin-top:36px}
+
+/* Responsive */
+@media(max-width:700px){
+  .stat-row{grid-template-columns:1fr}
+  .card-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header class="site-header">
+  <div class="label">FINAN VIII &middot; Unit 8</div>
+  <h1>De-dollarization Primer</h1>
+  <p class="subtitle">The dollar's role in global reserves, the forces challenging it, and what alternatives are emerging.</p>
+</header>
+
+<p>Before you play the <strong>Reserve Currency Wargame</strong>, this primer gives you the factual foundation you need: what the dollar actually does in global finance, why countries are diversifying away from it, and what alternatives exist. Read this with your game country in mind.</p>
+
+<h2>The Dollar's Role Today</h2>
+
+<p>The US dollar is not just America's currency. It is the infrastructure of global trade. When a Thai manufacturer buys Brazilian soybeans, the transaction almost certainly clears through a US bank, in US dollars, over the SWIFT messaging network. The dollar serves three distinct functions in global finance:</p>
+
+<div class="card-grid">
+  <div class="card">
+    <h4>Reserve Currency</h4>
+    <p style="font-size:14px;margin:0">Central banks hold dollar assets (primarily US Treasury bonds) as a store of value and emergency buffer. If a country needs to defend its own currency or pay for emergency imports, it sells Treasuries for cash.</p>
+  </div>
+  <div class="card">
+    <h4>Invoicing Currency</h4>
+    <p style="font-size:14px;margin:0">Most international commodities (oil, metals, grain) are priced in dollars regardless of who is buying or selling. A Saudi-Chinese oil transaction is quoted in dollars even though neither party uses the dollar domestically.</p>
+  </div>
+  <div class="card">
+    <h4>Settlement Medium</h4>
+    <p style="font-size:14px;margin:0">The actual payment infrastructure. SWIFT handles messaging; correspondent banks (almost always American) handle clearing. Over 88% of foreign exchange transactions involve the dollar on one side.</p>
+  </div>
+  <div class="card">
+    <h4>Safe Haven</h4>
+    <p style="font-size:14px;margin:0">In a global crisis, capital flows <em>into</em> dollars and Treasuries, not out. This "flight to safety" has historically made the dollar stronger during the moments when countries most need their reserves.</p>
+  </div>
+</div>
+
+<div class="stat-row">
+  <div class="stat">
+    <div class="num">57.8%</div>
+    <div class="desc">Dollar share of global reserves (2024)<br><a href="https://www.federalreserve.gov/econres/notes/feds-notes/the-international-role-of-the-u-s-dollar-2025-edition-20250718.html" target="_blank">Federal Reserve FEDS Notes</a></div>
+  </div>
+  <div class="stat">
+    <div class="num">88%</div>
+    <div class="desc">FX transactions involving USD<br><a href="https://www.bis.org/statistics/rpfx22_fx.htm" target="_blank">BIS Triennial Survey 2022</a></div>
+  </div>
+  <div class="stat">
+    <div class="num">$12.8T</div>
+    <div class="desc">Foreign holdings of US Treasuries<br><a href="https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/mfh.txt" target="_blank">US Treasury TIC Data</a></div>
+  </div>
+</div>
+
+<h2>Why Countries Are De-dollarizing</h2>
+
+<p>De-dollarization does not mean the dollar becomes worthless. It means the dollar's dominance slowly erodes as countries build alternatives. Several forces are driving this shift simultaneously:</p>
+
+<h3>1. Sanctions as Financial Weapons</h3>
+
+<p>The most powerful accelerant. When Western nations froze roughly $300 billion in Russian central bank reserves in February 2022, every reserve manager on earth received the same message: dollar assets can be turned off. The reserves Russia thought it owned were, in practice, held in Western institutions subject to Western jurisdiction. China, with <a href="https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/mfh.txt" target="_blank">approximately $760 billion in Treasuries</a>, watched carefully.</p>
+
+<div class="callout key">
+<strong>Key Concept: The Sanctions Paradox</strong>
+Sanctions work because the dollar is dominant. But each time sanctions are deployed, they incentivize targets and observers to diversify away from the dollar, weakening the very dominance that makes sanctions effective. The more the weapon is used, the less powerful it becomes.
+</div>
+
+<h3>2. Trade Pattern Shifts</h3>
+
+<p>China is now the largest trading partner of over 120 countries. If China accounts for 35% of your trade, holding 65% of your reserves in dollars and only 10% in yuan creates a mismatch between what you hold and what you need for settlement. As trade flows shift toward Asia, reserve composition logically follows.</p>
+
+<h3>3. US Fiscal Trajectory</h3>
+
+<p>US federal debt exceeded <a href="https://fiscaldata.treasury.gov/datasets/debt-to-the-penny/debt-to-the-penny" target="_blank">$36 trillion</a> in 2025, with debt-to-GDP above 120%. While the US has never defaulted, periodic debt ceiling crises and rating downgrades (S&amp;P in 2011, Fitch in 2023) create uncertainty for reserve managers who need their assets to be stable by definition.</p>
+
+<h3>4. Geopolitical Multipolarity</h3>
+
+<p>The dollar's reserve status was built in a unipolar world. As power distributes across multiple blocs (US-led, China-led, non-aligned), the monetary system faces pressure to match. BRICS nations collectively represent over 40% of global GDP at purchasing power parity.</p>
+
+<h2>The Alternatives</h2>
+
+<p>De-dollarization requires not just wanting to leave the dollar system but having somewhere else to go. Here is what currently exists:</p>
+
+<table class="data-table">
+  <thead>
+    <tr><th>Alternative</th><th>What It Is</th><th>Strengths</th><th>Weaknesses</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Chinese Yuan (CNY)</strong></td>
+      <td>China's currency, increasingly used in bilateral trade settlement via CIPS</td>
+      <td>Backed by world's second-largest economy; growing trade settlement network; BRICS alignment</td>
+      <td>Capital controls limit convertibility; China can devalue strategically; political risk of dependence on single partner</td>
+    </tr>
+    <tr>
+      <td><strong>Gold</strong></td>
+      <td>Physical metal held in sovereign vaults</td>
+      <td>No counterparty risk; impossible to freeze or sanction; 5,000-year track record as store of value</td>
+      <td>Zero yield; difficult to liquidate quickly at scale; cannot be used directly for trade settlement</td>
+    </tr>
+    <tr>
+      <td><strong>Bitcoin</strong></td>
+      <td>Decentralized digital asset with fixed supply</td>
+      <td>Cannot be frozen by any government; borderless; limited supply creates scarcity value</td>
+      <td>Extreme volatility (30-40% swings); almost no trade partners accept it; unproven at sovereign scale</td>
+    </tr>
+    <tr>
+      <td><strong>Tokenized Treasuries</strong></td>
+      <td>US Treasury bonds represented as blockchain tokens</td>
+      <td>Same yield as Treasuries; faster settlement; potentially tradeable 24/7 across borders</td>
+      <td>Still denominated in dollars (sanctions-exposed); regulatory uncertainty; platform/smart contract risk</td>
+    </tr>
+    <tr>
+      <td><strong>Tokenized Commodities</strong></td>
+      <td>Blockchain tokens backed by physical commodities (gold, oil)</td>
+      <td>Combines commodity stability with blockchain settlement speed; potentially sanctions-resistant</td>
+      <td>Custody and audit risk; thin markets; limited real-world settlement acceptance</td>
+    </tr>
+    <tr>
+      <td><strong>BRICS Bridge / mBridge</strong></td>
+      <td>Alternative cross-border payment systems bypassing SWIFT</td>
+      <td>Reduces dependence on Western payment infrastructure; enables direct bilateral settlement</td>
+      <td>Early stage; limited liquidity compared to SWIFT; politically fragmented governance</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout warn">
+<strong>The Tokenization Question</strong>
+The Reserve Currency Wargame groups all digital assets into one category. In reality, tokenized treasuries and Bitcoin have almost opposite risk profiles. Tokenized treasuries are dollarized, sanctionable, and yield-bearing. Bitcoin is decentralized, sanctions-proof, and volatile. Lumping them together masks fundamental differences. Your strategy memo should address this.
+</div>
+
+<h2>Alternative Payment Infrastructure</h2>
+
+<p>De-dollarization requires plumbing, not just politics. Two systems are challenging SWIFT's near-monopoly on cross-border payment messaging:</p>
+
+<div class="card-grid">
+  <div class="card">
+    <h4>CIPS (Cross-Border Interbank Payment System)</h4>
+    <p style="font-size:14px;margin:0">China's alternative to SWIFT. Processed <a href="https://english.shanghai.gov.cn/en-FinancialReformandInnovation/20250108/0d5502fd008549f1bb306f5ccf1ffe7a.html" target="_blank">$24.5 trillion in transactions in 2024</a>, up 43% year-over-year. Connects 1,400+ financial institutions across 110+ countries. Settles in yuan.</p>
+  </div>
+  <div class="card">
+    <h4>mBridge</h4>
+    <p style="font-size:14px;margin:0">BIS-backed CBDC bridge connecting central banks of China, Thailand, UAE, and Saudi Arabia. Uses distributed ledger technology for direct central bank-to-central bank settlement. Eliminates the need for US correspondent banks entirely. Still in pilot phase.</p>
+  </div>
+</div>
+
+<h2>Timeline of Key Events</h2>
+
+<div class="timeline">
+  <div class="event">
+    <div class="year">1944</div>
+    <p>Bretton Woods establishes dollar as global reserve currency, pegged to gold at $35/oz</p>
+  </div>
+  <div class="event">
+    <div class="year">1971</div>
+    <p>Nixon ends gold convertibility. Dollar floats freely but retains reserve status through oil pricing (petrodollar system)</p>
+  </div>
+  <div class="event">
+    <div class="year">2009</div>
+    <p>China launches cross-border yuan trade settlement pilot. PBOC Governor Zhou Xiaochuan proposes replacing the dollar with SDRs</p>
+  </div>
+  <div class="event">
+    <div class="year">2015</div>
+    <p>CIPS launches, giving China its own cross-border payment infrastructure independent of SWIFT</p>
+  </div>
+  <div class="event">
+    <div class="year">2022</div>
+    <p>Western nations freeze ~$300B in Russian central bank reserves. Global gold purchases surge. Saudi Arabia begins accepting yuan for some oil sales</p>
+  </div>
+  <div class="event">
+    <div class="year">2023</div>
+    <p>Central banks purchase 1,037 tonnes of gold (second-highest year on record). BRICS expands to include Saudi Arabia, UAE, Egypt, Ethiopia, Iran</p>
+  </div>
+  <div class="event">
+    <div class="year">2024</div>
+    <p>Dollar share of reserves falls to 57.8%, lowest since 1994. CIPS processes $24.5T in transactions (+43% YoY). Tokenized Treasury market exceeds $1B</p>
+  </div>
+</div>
+
+<h2>Connecting to the Wargame</h2>
+
+<p>The Reserve Currency Wargame puts you in the seat of a reserve manager navigating these forces in real time. Each country profile maps to a real-world archetype:</p>
+
+<table class="data-table">
+  <thead>
+    <tr><th>Game Country</th><th>Real-World Analog</th><th>Core Dilemma</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Petrolistan</strong></td>
+      <td>Saudi Arabia / UAE / Iran</td>
+      <td>Oil revenue is denominated in dollars, but dollar dependence is a strategic vulnerability. Diversify too fast and you disrupt your own revenue stream.</td>
+    </tr>
+    <tr>
+      <td><strong>Sanctiongrad</strong></td>
+      <td>Russia</td>
+      <td>Already frozen out of the dollar system. Every "alternative" asset has drawbacks: gold has no settlement utility, yuan has capital controls, crypto is volatile. You're choosing between imperfect options under maximum constraint.</td>
+    </tr>
+    <tr>
+      <td><strong>Dragonia</strong></td>
+      <td>China</td>
+      <td>You hold $800B in Treasuries. Selling crashes the market you depend on. You're simultaneously the dollar system's largest foreign participant and the architect of its replacement.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout info">
+<strong>Preparation Tip</strong>
+As you play, pay attention to the four metrics: growth, liquidity, safety, and settlement. They often conflict. A strategy that maximizes safety from sanctions (by holding gold and crypto) may devastate your settlement capability (because trade partners want dollars or yuan, not gold bars). The best strategies navigate these tensions rather than maximizing any single metric.
+</div>
+
+<h2>Further Reading</h2>
+
+<div class="card">
+  <h4>Primary Sources</h4>
+  <p style="font-size:14px;line-height:1.7;margin:0">
+    <a href="https://www.federalreserve.gov/econres/notes/feds-notes/the-international-role-of-the-u-s-dollar-2025-edition-20250718.html" target="_blank">The International Role of the US Dollar: 2025 Edition</a> — Federal Reserve FEDS Notes. The authoritative annual update on dollar reserve share, invoicing patterns, and cross-border usage.<br><br>
+    <a href="https://www.gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-full-year-2023" target="_blank">Gold Demand Trends Full Year 2023</a> — World Gold Council. Central bank gold purchasing data and analysis.<br><br>
+    <a href="https://www.bis.org/about/bisih/topics/cbdc/mcbdc_bridge.htm" target="_blank">Project mBridge</a> — Bank for International Settlements. Technical documentation on the multi-CBDC bridge connecting Asian central banks.<br><br>
+    <a href="https://www.atlanticcouncil.org/programs/geoeconomics-center/dollar-dominance-monitor/" target="_blank">Dollar Dominance Monitor</a> — Atlantic Council GeoEconomics Center. Tracks 40+ indicators of dollar status across reserves, trade, and financial markets.
+  </p>
+</div>
+
+<footer class="primer-footer">De-dollarization Primer &middot; FINAN VIII: Future of Finance</footer>
+
+</div>
+</body>
+</html>
