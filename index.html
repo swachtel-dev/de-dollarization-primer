@@ -18,6 +18,12 @@
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:15px;-webkit-font-smoothing:antialiased}
 .container{max-width:780px;margin:0 auto;padding:0 24px 60px}
 
+/* Accessibility utilities */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:999}
+.skip-link:focus{position:fixed;top:8px;left:8px;width:auto;height:auto;padding:10px 18px;background:var(--accent);color:#fff;font-size:14px;font-weight:600;border-radius:8px;text-decoration:none;z-index:999}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
 /* Header */
 .site-header{padding:32px 0 20px;border-bottom:1px solid var(--border);margin-bottom:32px}
 .site-header .label{font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
@@ -33,7 +39,7 @@ a:hover{text-decoration-color:var(--accent)}
 
 /* Cards */
 .card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px 24px;margin:16px 0}
-.card h4{font-family:'Fraunces',serif;font-size:15px;font-weight:700;margin-bottom:6px}
+.card h3{font-family:'Fraunces',serif;font-size:15px;font-weight:700;margin-bottom:6px}
 .card-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
 .card-grid .card{margin:0}
 
@@ -75,6 +81,7 @@ a:hover{text-decoration-color:var(--accent)}
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 <div class="container">
 
 <header class="site-header">
@@ -82,6 +89,8 @@ a:hover{text-decoration-color:var(--accent)}
   <h1>De-dollarization Primer</h1>
   <p class="subtitle">The dollar's role in global reserves, the forces challenging it, and what alternatives are emerging.</p>
 </header>
+
+<main id="main-content">
 
 <p>Before you play the <strong>Reserve Currency Wargame</strong>, this primer gives you the factual foundation you need: what the dollar actually does in global finance, why countries are diversifying away from it, and what alternatives exist. Read this with your game country in mind.</p>
 
@@ -91,19 +100,19 @@ a:hover{text-decoration-color:var(--accent)}
 
 <div class="card-grid">
   <div class="card">
-    <h4>Reserve Currency</h4>
+    <h3>Reserve Currency</h3>
     <p style="font-size:14px;margin:0">Central banks hold dollar assets (primarily US Treasury bonds) as a store of value and emergency buffer. If a country needs to defend its own currency or pay for emergency imports, it sells Treasuries for cash.</p>
   </div>
   <div class="card">
-    <h4>Invoicing Currency</h4>
+    <h3>Invoicing Currency</h3>
     <p style="font-size:14px;margin:0">Most international commodities (oil, metals, grain) are priced in dollars regardless of who is buying or selling. A Saudi-Chinese oil transaction is quoted in dollars even though neither party uses the dollar domestically.</p>
   </div>
   <div class="card">
-    <h4>Settlement Medium</h4>
+    <h3>Settlement Medium</h3>
     <p style="font-size:14px;margin:0">The actual payment infrastructure. SWIFT handles messaging; correspondent banks (almost always American) handle clearing. Over 88% of foreign exchange transactions involve the dollar on one side.</p>
   </div>
   <div class="card">
-    <h4>Safe Haven</h4>
+    <h3>Safe Haven</h3>
     <p style="font-size:14px;margin:0">In a global crisis, capital flows <em>into</em> dollars and Treasuries, not out. This "flight to safety" has historically made the dollar stronger during the moments when countries most need their reserves.</p>
   </div>
 </div>
@@ -153,8 +162,9 @@ Sanctions work because the dollar is dominant. But each time sanctions are deplo
 <p>De-dollarization requires not just wanting to leave the dollar system but having somewhere else to go. Here is what currently exists:</p>
 
 <table class="data-table">
+  <caption class="sr-only">Dollar alternatives comparison: strengths and weaknesses of each</caption>
   <thead>
-    <tr><th>Alternative</th><th>What It Is</th><th>Strengths</th><th>Weaknesses</th></tr>
+    <tr><th scope="col">Alternative</th><th scope="col">What It Is</th><th scope="col">Strengths</th><th scope="col">Weaknesses</th></tr>
   </thead>
   <tbody>
     <tr>
@@ -207,11 +217,11 @@ The Reserve Currency Wargame groups all digital assets into one category. In rea
 
 <div class="card-grid">
   <div class="card">
-    <h4>CIPS (Cross-Border Interbank Payment System)</h4>
+    <h3>CIPS (Cross-Border Interbank Payment System)</h3>
     <p style="font-size:14px;margin:0">China's alternative to SWIFT. Processed <a href="https://english.shanghai.gov.cn/en-FinancialReformandInnovation/20250108/0d5502fd008549f1bb306f5ccf1ffe7a.html" target="_blank">$24.5 trillion in transactions in 2024</a>, up 43% year-over-year. Connects 1,400+ financial institutions across 110+ countries. Settles in yuan.</p>
   </div>
   <div class="card">
-    <h4>mBridge</h4>
+    <h3>mBridge</h3>
     <p style="font-size:14px;margin:0">BIS-backed CBDC bridge connecting central banks of China, Thailand, UAE, and Saudi Arabia. Uses distributed ledger technology for direct central bank-to-central bank settlement. Eliminates the need for US correspondent banks entirely. Still in pilot phase.</p>
   </div>
 </div>
@@ -254,8 +264,9 @@ The Reserve Currency Wargame groups all digital assets into one category. In rea
 <p>The Reserve Currency Wargame puts you in the seat of a reserve manager navigating these forces in real time. Each country profile maps to a real-world archetype:</p>
 
 <table class="data-table">
+  <caption class="sr-only">Game countries and their real-world analogs</caption>
   <thead>
-    <tr><th>Game Country</th><th>Real-World Analog</th><th>Core Dilemma</th></tr>
+    <tr><th scope="col">Game Country</th><th scope="col">Real-World Analog</th><th scope="col">Core Dilemma</th></tr>
   </thead>
   <tbody>
     <tr>
@@ -284,7 +295,7 @@ As you play, pay attention to the four metrics: growth, liquidity, safety, and s
 <h2>Further Reading</h2>
 
 <div class="card">
-  <h4>Primary Sources</h4>
+  <h3>Primary Sources</h3>
   <p style="font-size:14px;line-height:1.7;margin:0">
     <a href="https://www.federalreserve.gov/econres/notes/feds-notes/the-international-role-of-the-u-s-dollar-2025-edition-20250718.html" target="_blank">The International Role of the US Dollar: 2025 Edition</a> — Federal Reserve FEDS Notes. The authoritative annual update on dollar reserve share, invoicing patterns, and cross-border usage.<br><br>
     <a href="https://www.gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-full-year-2023" target="_blank">Gold Demand Trends Full Year 2023</a> — World Gold Council. Central bank gold purchasing data and analysis.<br><br>
@@ -293,6 +304,7 @@ As you play, pay attention to the four metrics: growth, liquidity, safety, and s
   </p>
 </div>
 
+</main>
 <footer class="primer-footer">De-dollarization Primer &middot; FINAN VIII: Future of Finance</footer>
 
 </div>
